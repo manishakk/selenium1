@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 
-@allure.title("Verify URL")
+@allure.feature("Verify URL")
 def test_openurl():
   driver = webdriver.Chrome()
   driver.get("https://katalon-demo-cura.herokuapp.com/")
@@ -20,7 +20,7 @@ def test_openurl():
   assert driver.current_url == "https://katalon-demo-cura.herokuapp.com/profile.php#login"
   time.sleep(3)
 
-@allure.title("Verify Login")
+@allure.feature("Verify Login")
 def test_login():
   #username and password
   username = driver.find_element(By.ID, "txt-username")
@@ -31,7 +31,7 @@ def test_login():
   click_login.click()
   time.sleep(5)
 
-@allure.title("Verify appointment")
+@allure.feature("Verify appointment")
 def test_makeappointment():
   # Make Appointment
   page_title = driver.title
