@@ -9,10 +9,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 
-# ("augtest_040823@idrive.com")
-# self.log.info("Enter the Password")
-# self.hp.Enter_Password("123456")
-
 @allure.feature("Verify url")
 @allure.title("Verify login functionality")
 def test_url():
