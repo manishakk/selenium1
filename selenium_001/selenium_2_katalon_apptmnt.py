@@ -9,7 +9,8 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 @allure.feature("Verify URL")
 @allure.title("Verify URL")
@@ -33,7 +34,13 @@ def test_openurl():
   password.send_keys("ThisIsNotAPassword")
   click_login = driver.find_element(By.ID,"btn-login")
   click_login.click()
-  time.sleep(5)
+
+
+  #driver.implicitly_wait(5)
+
+  element = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.CLASS_NAME,"col-sm-12")))
+
 
 # @allure.feature("Verify appointment")
 #def test_makeappointment():

@@ -22,21 +22,36 @@ def test_url():
     search.click()
     time.sleep(5)
 
+    driver.implicitly_wait(5)
+
+
+
 ########################################################
 
     items_list = driver.find_elements(By.XPATH, "//div[@class='s-item__title']")
     for items in items_list: print(items.text)
 
+    mylist = []
     items_pricelist = driver.find_elements(By.XPATH, "//span[@class='s-item__price']")
     print(items_pricelist)
     print("*************************")
     for prices in items_pricelist:
         #print(prices.text)
-        txt = prices.text.replace("$","")
-        print(txt)
+        txt = prices.text.replace("$","").strip()
+        mylist.append(txt)
 
-    prices = sorted(txt)
-    print("Sorted Prices:", prices)
+    print(mylist)
+
+    print("printing sorted prices")
+
+    mylist.sort()
+    print(mylist)
+    newprices = txt
+
+    print(f"Product having: {mylist[1]}")
+
+    # prices = sorted(txt)
+    # print("Sorted Prices:", prices)
 
 
 
