@@ -59,7 +59,7 @@ def test_url():
 
    #enter emplyee name
 
-    usernames = driver.find_elements(By.XPATH, "//input[@placeholder='Type for hints...']").send_keys("a")
+    usernames = driver.find_element(By.XPATH, "//input[@placeholder='Type for hints...']").send_keys("a")
 
     time.sleep(2)
 
