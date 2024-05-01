@@ -44,26 +44,28 @@ def test_url():
     time.sleep(2)
 #select ESS from dropdown
     clickdropdownlist = driver.find_elements(By.XPATH,"//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow']")
-    empnamedropdown  = clickdropdownlist[1]
-    print(empnamedropdown.text)
-    empnamedropdown.click()
+    #empnamedropdown  = clickdropdownlist[0]
+    #print(empnamedropdown.text)
+    clickdropdownlist[0].click()
 
-    driver.find_element(By.XPATH, "(//div[@role='listbox']//child::div)[2]").click()
+    driver.find_element(By.XPATH, "(//div[@role='listbox']//div)[3]").click()
 
    # clickdropdown.click()
 
-    time.sleep(1)
+    time.sleep(3)
     #
     # driver.find_element(By.XPATH, "(//div[@role='listbox']//child::div)[2]").click()
     # time.sleep(2)
 
    #enter emplyee name
 
-    usernames = driver.find_element(By.XPATH, "//input[@placeholder='Type for hints...']").send_keys("a")
+    usernames = driver.find_element(By.XPATH, "//input[@placeholder='Type for hints...']")
+    usernames.send_keys("an")
 
-    time.sleep(2)
+    time.sleep(4)
 
-    driver.find_elements(By.XPATH, "(//div[@role='listbox']//child::div)[1]").click()
+    selectname = driver.find_element(By.XPATH, "(//div[@role='listbox']//child::div)[1]")
+    selectname.click()
 
 
     # username = usernames[2]
@@ -76,36 +78,38 @@ def test_url():
 
     statusdropdownlist = driver.find_elements(By.XPATH,
                                             "//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow']")
-    statusdropdownlist = statusdropdownlist[1]
-    statusdropdownlist.click()
+  #  statusdropdown = statusdropdownlist[1]
+    statusdropdownlist[1].click()
 
     #driver.find_element(By.XPATH, "(//div[@role='listbox']//child::div)[2]").click()
 
-    driver.find_element(By.XPATH, "(//div[@role='listbox']//child::div)[1]").click()
-    time.sleep(1)
+    driver.find_element(By.XPATH, "(//div[@role='listbox']//div)[2]").click()
+    time.sleep(2)
 
     #enterusername
-    usernames = driver.find_element(By.XPATH, "//input[@class='oxd-input oxd-input--active']")
+    usernames = driver.find_elements(By.XPATH, "//input[@class='oxd-input oxd-input--active']")
     username = usernames[1]
     username.send_keys("montyuser")
 
-    time.sleep(1)
+    # time.sleep(1)
+    #
+    # username = usernames[1]
+    # username.click()
 
-    username = usernames[1]
-    username.click()
+    time.sleep(2)
+    # password_list = driver.find_elements(By.XPATH, "//input[@class='oxd-input oxd-input--active'][@type='password'][@autocomplete='off']")
+    # password_input = password_list[0]
+    # repassword_input = password_list[1]
+    # password_input.send_keys("admin1234")
+    # repassword_input.send_keys("admin1234")
 
-    time.sleep(1)
-    password_list = driver.find_elements(By.XPATH, "//input[@class='oxd-input oxd-input--active'][@type='password']")
-    password_input = password_list[0]
-    password_input.send_keys("admin1234")
+    # password
+    password = driver.find_elements(By.XPATH,
+                                    "//input[@class='oxd-input oxd-input--active'][@type='password'][@autocomplete='off']")
+    password[0].send_keys("Test@123")
+    password[1].send_keys("Test@123")
 
-    time.sleep(1)
-
-    password_list = driver.find_element(By.XPATH, "//input[@class='oxd-input oxd-input--active'][@type='password']")
-    password_input = password_list[1]
-    password_input.send_keys("admin1234")
-
-    time.sleep(1)
+    time.sleep(2)
     #click save
     driver.find_element(By.XPATH, "//button[@type='submit']").click()
     driver.quit()
